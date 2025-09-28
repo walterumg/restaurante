@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: restaurante-ordenes-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: PORT
+        value: "10000"
+  - type: static
+    name: restaurante-ordenes-frontend
+    rootDir: frontend
+    buildCommand: ""
+    staticPublishPath: frontend
